@@ -20,6 +20,12 @@ var Dropdowns = Class.create({
      */
     initialize: function(original_select,settings) {
         if(original_select.hasClassName('replaced')) return;//avoid duplicates
+        if(!original_select.up().hasClassName('dropdown')){
+            original_select.wrap('div',{
+                'style':'width:'+original_select.getWidth()+'px',
+                'class':'dropdown'
+            });
+        }
         this.original_select = original_select.identify();//original select id
         this.id = this.original_select+"ATMCDropDown"; //dropdown's id
         this.typing_buffer = "";
@@ -48,6 +54,9 @@ var Dropdowns = Class.create({
 
         var width = original_select.getWidth();
         var classNames = original_select.className;
+        if(!classNames.include('divSelectReplacement')){//default skin
+            classNames = 'divSelectReplacement '+classNames;
+        }
         original_select.addClassName('replaced');
         // create list for styling
         var div = new Element('div',{
