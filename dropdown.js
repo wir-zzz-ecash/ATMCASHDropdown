@@ -10,7 +10,7 @@ var Dropdowns = Class.create({
     /** @lends Dropdowns# */
     /**
      * Constructs an ATMCASHDropdown object
-     * @version 0.4.6
+     * @version 0.4.7
      * @author (c) 2010 Ran Grushkowsky
      * @requires Prototype 1.6.1.0
      * @class Creates a dynamic javascript dropdown from an existing select dropdown
@@ -57,7 +57,7 @@ var Dropdowns = Class.create({
         if (!this.options.get('overideMobile')) {
             var ua = navigator.userAgent;
             if ((ua.match(/iPhone/i)) || (ua.match(/iPad/i)) || (ua.toLowerCase().indexOf("android") > -1) || (ua.match(/iPod/i))) {
-                return false;
+                return;
             }
         }
 
