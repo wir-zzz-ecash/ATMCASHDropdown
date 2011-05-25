@@ -286,7 +286,7 @@ Dropdowns.create = function(){
                         other_dropdowns = $$('.selectOpen');
                     }
                     if (other_dropdowns.size() !== 0) {
-                        Dropdowns.getObject(other_dropdowns[0].up('[class^=divSelectReplacement]').previous('.replaced').identify())._closeSel($$('.selectOpen .selected')[0]);
+                        Dropdowns.getObject(other_dropdowns[0].up('[class^=divSelectReplacement]').previous('.replaced').identify())._selectMe($$('.selectOpen .selected')[0]);
                     }
 
 
