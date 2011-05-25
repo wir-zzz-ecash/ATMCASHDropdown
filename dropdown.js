@@ -31,7 +31,8 @@ var Dropdowns = Class.create({
         this.typing_buffer = "";
         this.buffer_update = new Date();
         this.options = $H({
-            });
+            'overideMobile':false
+        });
 
         $H(settings || {}).each(function(s){
             if (this.options.keys().include(s.key)) { //if the setting provided is valid
@@ -51,6 +52,14 @@ var Dropdowns = Class.create({
             }
         });
         //end fix for hidden fields * suggested by Roberto *
+        
+        // detect mobile devices
+        if (!this.options.get('overideMobile')) {
+            var ua = navigator.userAgent;
+            if ((ua.match(/iPhone/i)) || (ua.match(/iPad/i)) || (ua.toLowerCase().indexOf("android") > -1) || (ua.match(/iPod/i))) {
+                return false;
+            }
+        }
 
         var width = original_select.getWidth();
         var classNames = original_select.className;
