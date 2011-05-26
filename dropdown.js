@@ -206,8 +206,8 @@ var Dropdowns = Class.create({
                 Dropdowns.getObject(this.up('[class^=divSelectReplacement]').previous('.replaced').identify())._selectMe(this);
             };
         };
+        $(this.original_select).fire("dropdown:blur");        
         if (Object.isFunction($(this.original_select).onblur)) {
-            $(this.original_select).fire("dropdown:blur");
             $(this.original_select).onblur();
         }
     }
