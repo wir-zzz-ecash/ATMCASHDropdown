@@ -236,6 +236,18 @@ Dropdowns.setSelectedIndex = function(obj,index) {
     dropdown_obj._selectMe($(dropdown_obj.id).down('ul').down(index));
 };
 
+/**
+ * This is a function that sets/selects the given value in the dropdown menu. Similar to Dropdowns.setSelectedIndex but instead of using an index number it uses a given value
+ * @addon
+ * @param {String} obj The original select's id, also used to create the dropdown.
+ * @param {String} val The value to set the dropdown to (must be a valid selectable value).
+ */
+Dropdowns.setValue = function(obj, val){
+	var dropdown_obj = Dropdowns.getObject(obj);
+	
+	dropdown_obj._selectMe($(dropdown_obj.id).down('ul').down($(obj).setValue(val).selectedIndex));
+};
+
 Dropdowns.create = function(){
     $$('select').each(function(e){
         (new Dropdowns(e));
