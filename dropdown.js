@@ -233,7 +233,7 @@ Dropdowns.getObject = function(name) {
 Dropdowns.setSelectedIndex = function(obj,index) {
     var dropdown_obj = Dropdowns.getObject(obj);
 
-    dropdown_obj._selectMe($(dropdown_obj.id).down('ul').down(index));
+    dropdown_obj._selectMe($(dropdown_obj.id).select('li')[index]);
 };
 
 /**
@@ -245,7 +245,7 @@ Dropdowns.setSelectedIndex = function(obj,index) {
 Dropdowns.setValue = function(obj, val){
 	var dropdown_obj = Dropdowns.getObject(obj);
 	
-	dropdown_obj._selectMe($(dropdown_obj.id).down('ul').down($(obj).setValue(val).selectedIndex));
+	dropdown_obj._selectMe($(dropdown_obj.id).select('li')[$(obj).setValue(val).selectedIndex]);
 };
 
 Dropdowns.create = function(){
