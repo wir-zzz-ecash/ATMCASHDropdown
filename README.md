@@ -20,7 +20,7 @@ Constructs an ATMCASHDropdown object
 
 This will create the replacement dropdown for select box with id original
 
-`mew Dropdowns('original');`
+`new Dropdowns('original');`
 	
 or
 
